@@ -1,0 +1,25 @@
+.modalFooter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgStyle{
+    height: auto;
+    width: 70px;
+    border-radius: 50%;
+    margin-right: 3rem;
+}
+
+.modalWrapper{
+    display: flex;
+    justify-content: flex-start;
+}
+
+div > h1 {
+    margin: 10px 0
+}
+
+.profile{
+    margin: 10px 0;
+}

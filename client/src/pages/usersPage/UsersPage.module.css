@@ -1,0 +1,44 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: 1000px){
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 800px) {
+             grid-template-columns: repeat(2, 1fr);
+         }
+
+     @media (max-width: 450px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+}
+
+/* const registerUser=asyncHandler(async (req, res)=> {
+        const {
+            name, email, password
+        }
+
+        =req.body;
+
+        const userExists=await User.findOne({
+            email
+        });
+
+    if (userExists) {
+        res.status(400);
+        throw new Error("User already exists");
+    }
+
+    const user=await User.create({
+        name,
+        email,
+        password,
+    }); */
+
+
+        /* app.use("/api/products", productRoutes);
+        app.use("/api/users", userRoutes);
+        app.use("/api/orders", orderRoutes);
+        app.use("/api/upload", uploadRoutes); */

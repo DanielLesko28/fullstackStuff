@@ -1,0 +1,12 @@
+.loginWrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 10rem;
+    justify-content: center;
+}
+
+input{
+    border: 1px solid black;
+    margin: 10px;
+}
