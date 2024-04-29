@@ -21,7 +21,10 @@ const AnimalModal = ({ name, animalId }) => {
 
   const submitAnimal = async () => {
     try {
-      const response = await axios.put(`/animals/${animalId}`);
+      const response = await axios.put(
+        `/animals/${animalId}`,
+        animalName === "" ? name : animalName
+      );
       if (!response.ok) {
         throw new Error("Failed to update animal name on FE");
       }
@@ -36,6 +39,8 @@ const AnimalModal = ({ name, animalId }) => {
     onClose();
     setAnimalName("");
   };
+
+  console.log("PUT request", name);
 
   return (
     <>
