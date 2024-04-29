@@ -41,6 +41,7 @@ const AnimalModal = ({ name, animalId }) => {
   };
 
   console.log("PUT request", name);
+  console.log("PUT request animalID", animalId);
 
   return (
     <>

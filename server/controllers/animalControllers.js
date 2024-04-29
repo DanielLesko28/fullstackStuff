@@ -36,7 +36,35 @@ const deleteAnimal = async (req, res) => {
   }
 };
 
-module.exports = { addAnimal, deleteAnimal, getAllAnimals };
+const updateAnimal = async (req, res) => {
+  console.log("PUT request on BE", req.body);
+
+  try {
+    const { _id } = req.params; // Get the animal ID from the URL params
+    const { name } = req.body; // Get the updated name from the request body
+
+    // Find the animal by ID and update its name
+    const updatedAnimal = await Animal.findByIdAndUpdate(
+      _id,
+      { name },
+      { new: true }
+    );
+
+    if (!updatedAnimal) {
+      // If animal with the given ID is not found, return a 404 response
+      return res.status(404).send("Animal not found");
+    }
+
+    // If the animal is updated successfully, send a success response
+    res.status(200).send("Animal updated successfully");
+  } catch (error) {
+    // If an error occurs, log it and send a 500 response
+    console.error("Error in PUT request", error);
+    res.status(500).send("Server Error in put request");
+  }
+};
+
+module.exports = { addAnimal, deleteAnimal, getAllAnimals, updateAnimal };
 
 //old post method
 // app.post("/animals", async (req, res) => {

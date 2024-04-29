@@ -8,6 +8,7 @@ const {
   addAnimal,
   deleteAnimal,
   getAllAnimals,
+  updateAnimal,
 } = require("./controllers/animalControllers.js");
 const Animal = require("./models/Animal.js");
 
@@ -33,44 +34,46 @@ app.use("/products", productsRoutes);
 app.get("/animals", getAllAnimals);
 app.post("/animals", addAnimal);
 app.delete("/animals/:_id", deleteAnimal);
+app.delete("/animals/:_id", updateAnimal);
 
 //For updating animal
-app.put("/animals/:_id", async (req, res) => {
-  console.log(req.params._id);
-  const animal = await Animal.findById(req.params._id);
+// app.put("/animals/:_id", async (req, res) => {
+//   console.log(req.params._id);
+//   const animal = await Animal.findById(req.params._id);
 
-  console.log(animal);
+//   console.log(animal);
 
-  if (animal) {
-    animal.name = req.body.name || animal.name;
-    const updatedAnimal = await animal.save();
+//   if (animal) {
+//     animal.name = req.body.name || animal.name;
+//     const updatedAnimal = await animal.save();
 
-    res.json({
-      _id: updatedAnimal._id,
-      name: updatedAnimal.name,
-    });
-  } else {
-    res.status(500).send("Error in PUT request on BE");
-  }
+//     res.json({
+//       _id: updatedAnimal._id,
+//       name: updatedAnimal.name,
+//     });
+//   } else {
+//     res.status(500).send("Error in PUT request on BE");
+//   }
 
-  // try {
-  //   const { _id } = req.params;
-  //   const { name } = req.body;
-  //   const updatedAnimal = await Animal.findByIdAndUpdate(
-  //     _id,
-  //     { name },
-  //     { new: true }
-  //   );
-  //   res.status(200).json(updatedAnimal);
-  // } catch (error) {
-  //   console.error(error);
-  //   res.status(500).send("Server Error");
-  // }
-});
+//   // try {
+//   //   const { _id } = req.params;
+//   //   const { name } = req.body;
+//   //   const updatedAnimal = await Animal.findByIdAndUpdate(
+//   //     _id,
+//   //     { name },
+//   //     { new: true }
+//   //   );
+//   //   res.status(200).json(updatedAnimal);
+//   // } catch (error) {
+//   //   console.error(error);
+//   //   res.status(500).send("Server Error");
+//   // }
+// });
 
 //For getting all superheroes
 app.get("/superheroes", getAllSuperheroes);
 
+//For posting new superhero
 app.post("/superheroes", addSuperhero);
 
 app.listen(port, () => {
