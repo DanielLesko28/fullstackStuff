@@ -47,10 +47,23 @@ const AddAnimalPage = () => {
 
   return (
     <>
-      <Button onClick={navigateBack}>Back</Button>
-      <Heading fontSize="25px" p={4}>
-        {oldData.name}
-      </Heading>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          padding: "1rem",
+        }}
+      >
+        <Button onClick={navigateBack} colorScheme="red">
+          Back
+        </Button>
+      </div>
+      <h1 style={{ fontSize: "20px", padding: "1rem 0" }}>
+        Old animal name:{" "}
+        <span style={{ fontWeight: "500", fontSize: "22px" }}>
+          {oldData.name}
+        </span>
+      </h1>
       <div>
         <label htmlFor="animalName">New animal name:</label>
         <input
@@ -59,7 +72,9 @@ const AddAnimalPage = () => {
           value={animalName}
           onChange={(e) => setAnimalName(e.target.value)}
         />
-        <Button onClick={updateAnimal}>Update</Button>
+        <Button onClick={updateAnimal} colorScheme="green">
+          Update
+        </Button>
       </div>
     </>
   );

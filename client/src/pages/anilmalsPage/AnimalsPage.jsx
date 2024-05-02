@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./AnimalPage.module.css";
 import { Link, useLocation } from "react-router-dom";
-import AnimalModal from "../../componnets/modal/AnimalModal";
+// import AnimalModal from "../../componnets/modal/AnimalModal";
 import { Button, Heading } from "@chakra-ui/react";
 
 const URL = "http://localhost:4200/animals";
@@ -60,7 +60,7 @@ const AnimalsPage = () => {
     }
   };
 
-  console.log("These are animals in state", animals);
+  // console.log("These are animals in state", animals);
 
   return (
     <div>
