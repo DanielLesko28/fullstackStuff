@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, Heading } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,7 +8,12 @@ const URL = "http://localhost:4200/animals";
 const AddAnimalPage = () => {
   const { id } = useParams();
 
+  const [animalName, setAnimalName] = useState("");
   const [oldData, setOldData] = useState({});
+  const [newData, setNewData] = useState({
+    _id: id,
+    name: animalName,
+  });
 
   useEffect(() => {
     fetchAnimal();
@@ -25,6 +30,17 @@ const AddAnimalPage = () => {
     }
   };
 
+  const updateAnimal = async () => {
+    try {
+      await axios.put(`${URL}/${id}`, { name: animalName });
+      // Optionally, you can fetch the updated data after the update if needed
+      fetchAnimal();
+      navigateBack(); // Navigate back after successful update
+    } catch (error) {
+      console.error("Error updating animal:", error);
+    }
+  };
+
   const navigate = useNavigate();
 
   const navigateBack = () => {
@@ -36,7 +52,19 @@ const AddAnimalPage = () => {
   return (
     <>
       <Button onClick={navigateBack}>Back</Button>
-      <h1>{id}</h1>
+      <Heading fontSize="25px" p={4}>
+        {oldData.name}
+      </Heading>
+      <div>
+        <label htmlFor="animalName">New animal name:</label>
+        <input
+          name="animalName"
+          type="text"
+          value={animalName}
+          onChange={(e) => setAnimalName(e.target.value)}
+        />
+        <Button onClick={updateAnimal}>Update</Button>
+      </div>
     </>
   );
 };
