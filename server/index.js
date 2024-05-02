@@ -9,8 +9,9 @@ const {
   deleteAnimal,
   getAllAnimals,
   updateAnimal,
+  getSingleAnimal,
 } = require("./controllers/animalControllers.js");
-const Animal = require("./models/Animal.js");
+// const Animal = require("./models/Animal.js");
 
 const productsRoutes = require("./routes/products");
 const {
@@ -32,6 +33,7 @@ app.use("/products", productsRoutes);
 
 //For getting, posting, deleting all animals
 app.get("/animals", getAllAnimals);
+app.get("/animals/:_id", getSingleAnimal);
 app.post("/animals", addAnimal);
 app.delete("/animals/:_id", deleteAnimal);
 app.put("/animals/:_id", updateAnimal);

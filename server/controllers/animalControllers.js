@@ -11,6 +11,16 @@ const getAllAnimals = async (req, res) => {
   }
 };
 
+const getSingleAnimal = async (req, res) => {
+  const { _id } = req.params;
+  const animal = await Animal.findById(_id);
+  if (animal) {
+    return res.json(animal);
+  } else {
+    res.status(404).send("Cannot find the animal");
+  }
+};
+
 const addAnimal = async (req, res) => {
   try {
     const { name } = req.body;
@@ -83,7 +93,13 @@ const updateAnimal = async (req, res) => {
   }
 };
 
-module.exports = { addAnimal, deleteAnimal, getAllAnimals, updateAnimal };
+module.exports = {
+  addAnimal,
+  deleteAnimal,
+  getAllAnimals,
+  updateAnimal,
+  getSingleAnimal,
+};
 
 //old post method
 // app.post("/animals", async (req, res) => {
