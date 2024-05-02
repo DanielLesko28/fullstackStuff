@@ -10,10 +10,6 @@ const AddAnimalPage = () => {
 
   const [animalName, setAnimalName] = useState("");
   const [oldData, setOldData] = useState({});
-  const [newData, setNewData] = useState({
-    _id: id,
-    name: animalName,
-  });
 
   useEffect(() => {
     fetchAnimal();
