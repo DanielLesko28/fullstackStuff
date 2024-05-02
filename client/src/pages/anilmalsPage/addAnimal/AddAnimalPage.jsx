@@ -33,9 +33,9 @@ const AddAnimalPage = () => {
   const updateAnimal = async () => {
     try {
       await axios.put(`${URL}/${id}`, { name: animalName });
-      // Optionally, you can fetch the updated data after the update if needed
+
       fetchAnimal();
-      navigateBack(); // Navigate back after successful update
+      navigateBack();
     } catch (error) {
       console.error("Error updating animal:", error);
     }
