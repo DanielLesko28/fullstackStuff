@@ -34,7 +34,7 @@ app.use("/products", productsRoutes);
 app.get("/animals", getAllAnimals);
 app.post("/animals", addAnimal);
 app.delete("/animals/:_id", deleteAnimal);
-app.delete("/animals/:_id", updateAnimal);
+app.put("/animals/:_id", updateAnimal);
 
 //For updating animal
 // app.put("/animals/:_id", async (req, res) => {

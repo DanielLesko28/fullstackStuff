@@ -18,18 +18,28 @@ const AnimalModal = ({ name, animalId }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [animalName, setAnimalName] = useState("");
+  const [newData, setNewData] = useState({
+    _id: animalId,
+    name: "",
+  });
 
-  const submitAnimal = async () => {
+  useEffect(() => {
+    setNewData({
+      _id: animalId,
+      name: animalName,
+    });
+  }, [animalName, animalId]);
+
+  const submitAnimal = async (e) => {
+    e.preventDefault();
     try {
-      const response = await axios.put(
-        `/animals/${animalId}`,
-        animalName === "" ? name : animalName
-      );
-      if (!response.ok) {
+      const response = await axios.put(`/animals/${animalId}`, newData);
+      if (response.status >= 200 && response.status < 300) {
+        setAnimalName(""); // Clear the input field
+        onClose(); // Close the modal
+      } else {
         throw new Error("Failed to update animal name on FE");
       }
-      setAnimalName(""); // Clear the input field
-      onClose(); // Close the modal
     } catch (error) {
       console.log("Error in put request", error);
     }
@@ -40,8 +50,9 @@ const AnimalModal = ({ name, animalId }) => {
     setAnimalName("");
   };
 
-  console.log("PUT request", name);
-  console.log("PUT request animalID", animalId);
+  // console.log("PUT request", name);
+  // console.log("PUT request animalID", animalId);
+  console.log("animalName", animalName);
 
   return (
     <>

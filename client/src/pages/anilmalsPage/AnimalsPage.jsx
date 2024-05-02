@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./AnimalPage.module.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import AnimalModal from "../../componnets/modal/AnimalModal";
-import { Button } from "@chakra-ui/react";
+import { Button, Heading } from "@chakra-ui/react";
 
 const URL = "http://localhost:4200/animals";
 
@@ -79,7 +79,12 @@ const AnimalsPage = () => {
         <div className={styles.bigContainer}>
           {animals?.map((animal) => (
             <div key={animal._id} className={styles.container}>
-              <AnimalModal name={animal.name} animalId={animal._id} />
+              {/* <AnimalModal name={animal.name} animalId={animal._id} /> */}
+              <Link to={`/animals/${animal._id}`}>
+                <Heading fontSize="20px" fontWeight="500" size="lg">
+                  {animal.name}
+                </Heading>
+              </Link>
               <Button
                 colorScheme="red"
                 my="1rem"

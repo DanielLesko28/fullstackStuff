@@ -36,31 +36,50 @@ const deleteAnimal = async (req, res) => {
   }
 };
 
+// const updateAnimal = async (req, res) => {
+//   console.log("PUT request on BE", req.body);
+
+//   try {
+//     const { _id } = req.params; // Get the animal ID from the URL params
+//     const { name } = req.body; // Get the updated name from the request body
+
+//     // Find the animal by ID and update its name
+//     const updatedAnimal = await Animal.findByIdAndUpdate(
+//       _id,
+//       { name },
+//       { new: true }
+//     );
+
+//     if (!updatedAnimal) {
+//       // If animal with the given ID is not found, return a 404 response
+//       return res.status(404).send("Animal not found");
+//     }
+
+//     // If the animal is updated successfully, send a success response
+//     res.status(200).send("Animal updated successfully");
+//   } catch (error) {
+//     // If an error occurs, log it and send a 500 response
+//     console.error("Error in PUT request", error);
+//     res.status(500).send("Server Error in put request");
+//   }
+// };
+
 const updateAnimal = async (req, res) => {
   console.log("PUT request on BE", req.body);
+  console.log("Params:", req.params);
+  console.log("Body:", req.body);
 
-  try {
-    const { _id } = req.params; // Get the animal ID from the URL params
-    const { name } = req.body; // Get the updated name from the request body
+  const { name } = req.body;
+  const { _id } = req.params;
 
-    // Find the animal by ID and update its name
-    const updatedAnimal = await Animal.findByIdAndUpdate(
-      _id,
-      { name },
-      { new: true }
-    );
+  const singleAnimal = await Animal.findById(_id);
 
-    if (!updatedAnimal) {
-      // If animal with the given ID is not found, return a 404 response
-      return res.status(404).send("Animal not found");
-    }
-
-    // If the animal is updated successfully, send a success response
-    res.status(200).send("Animal updated successfully");
-  } catch (error) {
-    // If an error occurs, log it and send a 500 response
-    console.error("Error in PUT request", error);
-    res.status(500).send("Server Error in put request");
+  if (singleAnimal) {
+    singleAnimal.name = name;
+    const updatedAnimal = await singleAnimal.save();
+    res.json(updatedAnimal);
+  } else {
+    res.status(404).send("Animal cannot be updated");
   }
 };
 

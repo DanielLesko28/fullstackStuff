@@ -14,6 +14,7 @@ import AnimalsPage from "./pages/anilmalsPage/AnimalsPage";
 import DogsPage from "./pages/dogsPage/DogsPage.tsx";
 import Superheroes from "./pages/superheroesPage/Superheroes.jsx";
 import AddSuperheroPage from "./pages/addSuperheroPage/AddSuperheroPage.jsx";
+import AddAnimalPage from "./pages/anilmalsPage/addAnimal/AddAnimalPage.jsx";
 
 function App() {
   const localCategories = JSON.parse(localStorage.getItem("categories"));
@@ -31,6 +32,7 @@ function App() {
           <Route path="/users" element={<UsersPage />} />
           <Route path="/backend" element={<BackendStuff />} />
           <Route path="/animals" element={<AnimalsPage />} />
+          <Route path="/animals/:id" element={<AddAnimalPage />} />
           <Route path="/dogs" element={<DogsPage />} />
           <Route path="/superheroes" element={<Superheroes />} />
           {/* <Route path="/users" element={<UsersPage />} /> */}
