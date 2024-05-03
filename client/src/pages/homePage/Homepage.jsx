@@ -28,7 +28,7 @@ const allLinks = [
 const Homepage = () => {
   const signedUser = JSON.parse(localStorage.getItem("signedUser"));
 
-  console.log("user on homepage", signedUser);
+  // console.log("user on homepage", signedUser);
 
   return (
     <div
