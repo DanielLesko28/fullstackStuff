@@ -8,9 +8,13 @@ export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
 
   const fetchUsers = async () => {
-    const response = await fetch(URL);
-    const data = await response.json();
-    setUsers(data);
+    try {
+      const response = await fetch(URL);
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.log("Error in fetching Users in context", error);
+    }
   };
 
   useEffect(() => {
