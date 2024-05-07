@@ -1,3 +1,11 @@
+.bigContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 3rem;
+}
+
 .container{
     background-color: #00BFFF;
     font-size: 20px;

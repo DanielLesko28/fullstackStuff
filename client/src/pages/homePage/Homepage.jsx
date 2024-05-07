@@ -32,24 +32,16 @@ const Homepage = () => {
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        justifyContent: "center",
-        marginTop: "2rem",
-        gap: "3rem",
-      }}
+    // style={{
+    //   display: "flex",
+    //   flexDirection: "column",
+    //   width: "100%",
+    //   justifyContent: "center",
+    //   marginTop: "2rem",
+    //   gap: "3rem",
+    // }}
     >
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "center",
-          marginTop: "2rem",
-          gap: "3rem",
-        }}
-      >
+      <div className={styles.bigContainer}>
         {allLinks &&
           allLinks.map((link) => (
             <div
