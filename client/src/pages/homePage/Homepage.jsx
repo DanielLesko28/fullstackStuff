@@ -23,6 +23,10 @@ const allLinks = [
     link: "superheroes",
     name: "Superheroes",
   },
+  {
+    link: "cars",
+    name: "Cars",
+  },
 ];
 
 const Homepage = () => {

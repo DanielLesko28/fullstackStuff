@@ -13,7 +13,7 @@ import BackendStuff from "./pages/backendStuff/BackendStuff";
 import AnimalsPage from "./pages/anilmalsPage/AnimalsPage";
 import DogsPage from "./pages/dogsPage/DogsPage.tsx";
 import Superheroes from "./pages/superheroesPage/Superheroes.jsx";
-import AddSuperheroPage from "./pages/addSuperheroPage/AddSuperheroPage.jsx";
+import AddSuperheroPage from "./pages/superheroesPage/addSuperheroPage/AddSuperheroPage.jsx";
 import AddAnimalPage from "./pages/anilmalsPage/addAnimal/AddAnimalPage.jsx";
 
 function App() {
