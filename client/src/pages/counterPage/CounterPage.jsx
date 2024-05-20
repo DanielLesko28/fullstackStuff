@@ -7,7 +7,11 @@ const CounterPage = () => {
     const dispatch = useDispatch();
   
     const increment = () => dispatch({ type: 'increment' });
-    const decrement = () => dispatch({ type: 'decrement' });
+    const decrement = () => {
+        if(count > 0){
+            dispatch({ type: 'decrement' })
+        }
+    };
   
     return (
       <div>
