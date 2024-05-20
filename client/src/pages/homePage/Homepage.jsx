@@ -24,8 +24,8 @@ const allLinks = [
     name: "Superheroes",
   },
   {
-    link: "cars",
-    name: "Cars",
+    link: "recipes",
+    name: "Recipes",
   },
 ];
 
