@@ -27,6 +27,10 @@ const allLinks = [
     link: "recipes",
     name: "Recipes",
   },
+  {
+    link: "counter",
+    name: "Counter",
+  },
 ];
 
 const Homepage = () => {
