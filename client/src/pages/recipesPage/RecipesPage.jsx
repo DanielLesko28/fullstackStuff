@@ -6,13 +6,15 @@ import { useSelector, useDispatch } from 'react-redux';
 const RecipesPage = () => {
     const inventory = useSelector((state) => state.inventory)
 
+    const dispatch = useDispatch()
+
     console.log('inventory', inventory)
    
   
     return (
      <>
      <CurrencyFilter />
-     <Inventory />
+     <Inventory inventory={inventory} dispatch={dispatch} />
      </>
     );
 }
