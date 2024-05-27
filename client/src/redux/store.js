@@ -1,8 +1,13 @@
-import {createStore} from 'redux'
+import {createStore, combineReducers} from 'redux'
+import { inventoryReducer } from './inventory/inventorySlice'
+import { cartReducer } from './cart/cartSlice'
+import { currencyFilterReducer } from './currencyFilter/currencyFilterSlice'
 
-const initialState = 0
 
-const countReducer = (state = initialState, action) => {
+const initialState = 28
+
+//This will later go to own slice
+const counterReducer = (state = initialState, action) => {
 
     switch(action.type){
         case 'increment':
@@ -17,6 +22,16 @@ const countReducer = (state = initialState, action) => {
     }
 }
 
-const counterStore = createStore(countReducer)
+const reducers = {
+    inventory: inventoryReducer,
+    cart: cartReducer,
+    currencyFilter: currencyFilterReducer,
+    counter: counterReducer
+}
 
-export default counterStore
+const rootReducer = combineReducers(reducers)
+
+
+const store = createStore(rootReducer)
+
+export default store

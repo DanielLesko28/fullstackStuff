@@ -17,11 +17,14 @@ import AddSuperheroPage from "./pages/superheroesPage/addSuperheroPage/AddSuperh
 import AddAnimalPage from "./pages/anilmalsPage/addAnimal/AddAnimalPage.jsx";
 import RecipesPage from "./pages/recipesPage/RecipesPage.jsx";
 import CounterPage from "./pages/counterPage/CounterPage.jsx";
+import store from "./redux/store.js";
 
 function App() {
   const localCategories = JSON.parse(localStorage.getItem("categories"));
 
   // console.log("localCategoriesss", localCategories);
+
+  console.log('redux store', store.getState())
 
   return (
     <div className="App">

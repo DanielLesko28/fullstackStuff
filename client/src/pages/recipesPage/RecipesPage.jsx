@@ -1,10 +1,19 @@
 import React from 'react'
+import { CurrencyFilter } from '../../redux/currencyFilter/CurenncyFilter';
+import { Inventory } from '../../redux/inventory/Inventory';
+import { useSelector, useDispatch } from 'react-redux';
 
 const RecipesPage = () => {
+    const inventory = useSelector((state) => state.inventory)
+
+    console.log('inventory', inventory)
    
   
     return (
-      <div><h1>Recipes Page</h1></div>
+     <>
+     <CurrencyFilter />
+     <Inventory />
+     </>
     );
 }
 
