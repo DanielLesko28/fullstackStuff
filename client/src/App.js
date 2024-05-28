@@ -15,13 +15,15 @@ import DogsPage from "./pages/dogsPage/DogsPage.tsx";
 import Superheroes from "./pages/superheroesPage/Superheroes.jsx";
 import AddSuperheroPage from "./pages/superheroesPage/addSuperheroPage/AddSuperheroPage.jsx";
 import AddAnimalPage from "./pages/anilmalsPage/addAnimal/AddAnimalPage.jsx";
-import RecipesPage from "./pages/recipesPage/RecipesPage.jsx";
+import RecipesPage from "./pages/reduxStorePage/ReduxStorePage.jsx";
 import CounterPage from "./pages/counterPage/CounterPage.jsx";
+import store from "./redux/store.js";
 
 function App() {
   const localCategories = JSON.parse(localStorage.getItem("categories"));
 
   // console.log("localCategoriesss", localCategories);
+  // console.log('redux store', store.getState())
 
   return (
     <div className="App">
@@ -42,7 +44,7 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/addSuperhero" element={<AddSuperheroPage />} />
-          <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/reduxStore" element={<RecipesPage />} />
           <Route path="/counter" element={<CounterPage />} />
         </Routes>
       </UserProvider>
