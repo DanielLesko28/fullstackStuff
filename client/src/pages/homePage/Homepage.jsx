@@ -24,8 +24,8 @@ const allLinks = [
     name: "Superheroes",
   },
   {
-    link: "recipes",
-    name: "Recipes",
+    link: "reduxStore",
+    name: "Redux Store",
   },
   {
     link: "counter",
