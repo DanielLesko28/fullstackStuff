@@ -26,7 +26,7 @@ export const Cart = (props) => {
   const total = calculateTotal(cart, currencyFilter);
 
   return (
-    <div id="cart-container">
+    <div id="cart-container" style={{position: 'sticky',top: '20px', zIndex: '10'}}>
       <ul id="cart-items">{cartElements}</ul>
       <h3 className="total">
         Total{' '}

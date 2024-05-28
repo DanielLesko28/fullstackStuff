@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import './Inventory.css'
 
 import { calculatePrice, getCurrencySymbol } from '../utilities/utilities.js';
 import { addItem } from '../cart/cartSlice.js';
 import { loadData } from './inventorySlice';
+import { Button } from '@chakra-ui/react';
 
 export const Inventory = ({ inventory, currencyFilter, dispatch }) => {
 
@@ -33,12 +35,12 @@ export const Inventory = ({ inventory, currencyFilter, dispatch }) => {
           {getCurrencySymbol(currencyFilter)}
           {displayPrice.toFixed(2)} {currencyFilter}
         </h3>
-        <button
+        <Button
           onClick={() => onClickHandler(inventoryItem)}
           className="add-to-cart-button"
         >
           Add to Cart
-        </button>
+        </Button>
       </li>
     );
   }
