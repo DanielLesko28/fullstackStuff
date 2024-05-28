@@ -11,7 +11,7 @@ const RecipesPage = () => {
 
     const dispatch = useDispatch()
 
-    console.log('inventory', inventory)
+    // console.log('inventory', inventory)
    
   
     return (

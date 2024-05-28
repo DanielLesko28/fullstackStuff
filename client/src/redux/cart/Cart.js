@@ -1,11 +1,14 @@
 import React from 'react';
-import { calculatePrice, calculateTotal, getCurrencySymbol } from '../utilities/utilities';
+import {  calculateTotal, getCurrencySymbol } from '../utilities/utilities';
+import './Cart.css'
 
 // Import the changeItemQuantity() action creator.
 import { changeItemQuantity } from './cartSlice';
 
 export const Cart = (props) => {
   const { cart, currencyFilter, dispatch } = props;
+
+  console.log('currencyFilter', currencyFilter)
 
   const onInputChangeHandler = (name, input) => {
     // If the user enters a bad value...
@@ -26,7 +29,7 @@ export const Cart = (props) => {
   const total = calculateTotal(cart, currencyFilter);
 
   return (
-    <div id="cart-container" style={{position: 'sticky',top: '20px', zIndex: '10'}}>
+    <div id="cart-container">
       <ul id="cart-items">{cartElements}</ul>
       <h3 className="total">
         Total{' '}

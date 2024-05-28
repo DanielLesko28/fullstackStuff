@@ -23,8 +23,7 @@ function App() {
   const localCategories = JSON.parse(localStorage.getItem("categories"));
 
   // console.log("localCategoriesss", localCategories);
-
-  console.log('redux store', store.getState())
+  // console.log('redux store', store.getState())
 
   return (
     <div className="App">
