@@ -8,7 +8,7 @@ import { changeItemQuantity } from './cartSlice';
 export const Cart = (props) => {
   const { cart, currencyFilter, dispatch } = props;
 
-  console.log('currencyFilter', currencyFilter)
+//   console.log('currencyFilter', currencyFilter)
 
   const onInputChangeHandler = (name, input) => {
     // If the user enters a bad value...

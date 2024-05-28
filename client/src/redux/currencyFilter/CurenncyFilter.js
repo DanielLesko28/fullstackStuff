@@ -7,6 +7,15 @@ export const CurrencyFilter = ({ currencyFilter, dispatch }) => {
     dispatch(setCurrency(currency));
   };
 
+//   console.log('currencyFilter', currencyFilter)
+
+const basedStyle = {
+    backgroundColor: '#4B0082',
+    color: 'white'
+}
+
+
+
   return (
     <div id="currency-filters-container">
       <h3>Choose a currency</h3>
@@ -15,12 +24,16 @@ export const CurrencyFilter = ({ currencyFilter, dispatch }) => {
   );
 
   function createCurrencyButton(currency) {
+
+    const conditionalStyle = currencyFilter === currency ? { opacity: '1' } : {opacity: '0.5'}
+    const combinedStyle = {...basedStyle, ...conditionalStyle}
+
     return (
       <Button m={2}
         className={`currency-button ${
           currencyFilter === currency && 'selected'
         }`}
-        style={currencyFilter === currency ? { backgroundColor: 'black' } : {}}
+        style={combinedStyle}
         key={currency}
         onClick={() => onClickHandler(currency)}
       >
