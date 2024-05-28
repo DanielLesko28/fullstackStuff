@@ -25,7 +25,7 @@ const basedStyle = {
 
   function createCurrencyButton(currency) {
 
-    const conditionalStyle = currencyFilter === currency ? { opacity: '1' } : {opacity: '0.5'}
+    const conditionalStyle = currencyFilter === currency ? { opacity: '1' } : {opacity: '0.4'}
     const combinedStyle = {...basedStyle, ...conditionalStyle}
 
     return (

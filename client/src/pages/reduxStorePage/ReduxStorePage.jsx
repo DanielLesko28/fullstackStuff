@@ -17,7 +17,7 @@ const RecipesPage = () => {
     return (
      <>
      <CurrencyFilter dispatch={dispatch} currencyFilter={currencyFilter} />
-     <Inventory inventory={inventory} dispatch={dispatch} />
+     <Inventory inventory={inventory} currencyFilter={currencyFilter} dispatch={dispatch} />
      <Cart cart={cart} currencyFilter={currencyFilter} dispatch={dispatch}  />
      </>
     );
